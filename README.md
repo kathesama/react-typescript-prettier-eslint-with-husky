@@ -8,21 +8,21 @@
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![YARN](https://img.shields.io/badge/YARN-%23000000.svg?style=for-the-badge&logo=yarn&logoColor=white)
 <br>
-[![GitHub issues](https://img.shields.io/github/issues/kathesama/react-typescript?style=plastic)](https://github.com/kathesama/react-typescript/issues)
-[![GitHub forks](https://img.shields.io/github/forks/kathesama/react-typescript?style=plastic)](https://github.com/kathesama/react-typescript/network)
-[![GitHub stars](https://img.shields.io/github/stars/kathesama/react-typescript?style=plastic)](https://github.com/kathesama/react-typescript/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/issues)
+[![GitHub forks](https://img.shields.io/github/forks/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/network)
+[![GitHub stars](https://img.shields.io/github/stars/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/stargazers)
 <br>
-![GitHub last commit](https://img.shields.io/github/last-commit/kathesama/react-typescript?color=red&style=plastic)
-![GitHub version commits](https://img.shields.io/github/commits-since/kathesama/react-typescript/V2.0.0.svg?color=yellow&style=plastic)
-![GitHub top language](https://img.shields.io/github/languages/top/kathesama/react-typescript?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/kathesama/react-typescript-prettier-eslint-with-husky?color=red&style=plastic)
+![GitHub version commits](https://img.shields.io/github/commits-since/kathesama/react-typescript-prettier-eslint-with-husky/V2.0.0.svg?color=yellow&style=plastic)
+![GitHub top language](https://img.shields.io/github/languages/top/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)
 <br>
 ![Maintaned](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=plastic)
 
 [comment]: <> (![OWASP]&#40;https://img.shields.io/badge/OWASP%3F-yes-green.svg?style=plastic&#41;)
 
 [comment]: <> (![CleanCode]&#40;https://img.shields.io/badge/CleanCode%3F-yes-green.svg?style=plastic&#41;)
-[![GitHub license](https://img.shields.io/github/license/kathesama/react-typescript?style=plastic)](https://github.com/kathesama/react-typescript/blob/main/LICENSE)
-![GitHub repo size](https://img.shields.io/github/repo-size/kathesama/react-typescript?style=plastic)
+[![GitHub license](https://img.shields.io/github/license/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/blob/main/LICENSE)
+![GitHub repo size](https://img.shields.io/github/repo-size/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)
 <br>
 
 # Initial seed for a react project
@@ -30,7 +30,7 @@
 Steps to run this project
 
 1. Clone this repo
-   > git clone https://github.com/kathesama/react-typescript.git
+   > git clone https://github.com/kathesama/react-typescript-prettier-eslint-with-husky.git
 2. Run install
    > npm install
 
