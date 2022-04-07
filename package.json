@@ -75,5 +75,13 @@
       "yarn prettier:fix",
       "yarn lint"
     ]
+  },
+  "_moduleAliases": {
+    "@": "./src/*"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "@/(.*)": "<rootDir>/src/$1"
+    }
   }
 }
