@@ -7,6 +7,7 @@
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![PWA Ready](https://img.shields.io/badge/PWA-ready-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 <br>
 [![GitHub issues](https://img.shields.io/github/issues/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/issues)
 [![GitHub forks](https://img.shields.io/github/forks/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/network)
@@ -28,7 +29,8 @@
 # React TypeScript Template
 
 Initial seed for a React project with TypeScript, Vite, ESLint, Prettier, Husky,
-Redux Toolkit, React Router, Sass modules, and Testing Library.
+Redux Toolkit, React Router, Sass modules, Testing Library, and a PWA-ready
+setup.
 
 ## Requirements
 
@@ -46,13 +48,42 @@ Redux Toolkit, React Router, Sass modules, and Testing Library.
 
 ## Available Scripts
 
-- `npm start`: starts Vite in development mode.
+- `npm start`: starts Vite in development mode. PWA features are disabled in
+  this mode.
 - `npm run build`: type-checks and builds production assets into `dist/`.
+- `npm run preview`: serves the production build locally with the generated PWA
+  assets.
 - `npm run test:run`: runs tests once with Vitest.
 - `npm test`: starts Vitest in watch mode.
 - `npm run lint`: runs ESLint.
 - `npm run prettier:check`: checks formatting.
 - `npm run prettier:fix`: formats the project.
+
+## PWA Ready
+
+This template includes a production-only PWA setup using `vite-plugin-pwa`.
+The build generates a web app manifest and service worker with auto-update
+registration and static asset precaching.
+
+PWA features are not enabled when running `npm start` or `npm run dev`. This
+keeps development free from service worker cache issues. The PWA output is
+generated only when running `npm run build` and can be tested locally with
+`npm run preview`.
+
+Runtime API caching is intentionally not configured. Add app-specific Workbox
+runtime caching only after defining the API and offline strategy for the
+project.
+
+For mobile, the production build can be installed from supported mobile browsers
+as a PWA. If the project needs native app store packaging later, wrap the built
+web app with a tool such as Capacitor or a Trusted Web Activity.
+
+To test the PWA build locally:
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Commit Message Format
 
