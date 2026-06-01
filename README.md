@@ -8,6 +8,7 @@
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![PWA Ready](https://img.shields.io/badge/PWA-ready-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
+![Docker Ready](https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 <br>
 [![GitHub issues](https://img.shields.io/github/issues/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/issues)
 [![GitHub forks](https://img.shields.io/github/forks/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/network)
@@ -30,12 +31,13 @@
 
 Initial seed for a React project with TypeScript, Vite, ESLint, Prettier, Husky,
 Redux Toolkit, React Router, Sass modules, Testing Library, and a PWA-ready
-setup.
+setup. The production build is Docker-ready and served with Nginx.
 
 ## Requirements
 
 - Node.js `^20.19.0 || ^22.13.0 || >=24.0.0`
 - npm
+- Docker, optional for containerized production builds
 
 ## Setup
 
@@ -58,6 +60,8 @@ setup.
 - `npm run lint`: runs ESLint.
 - `npm run prettier:check`: checks formatting.
 - `npm run prettier:fix`: formats the project.
+- `npm run docker:build`: builds the production Docker image.
+- `npm run docker:run`: runs the production Docker image on port `8080`.
 
 ## PWA Ready
 
@@ -84,6 +88,31 @@ To test the PWA build locally:
 npm run build
 npm run preview
 ```
+
+## Docker
+
+This template includes a production Docker setup. The Docker image builds the
+Vite app with `npm ci` and serves the generated `dist/` folder with Nginx.
+
+PWA assets are generated during the Docker build because the container runs
+`npm run build`. The Nginx config keeps `index.html`, `manifest.json`, `sw.js`,
+and `registerSW.js` uncached while allowing long-term caching for fingerprinted
+static assets under `/assets/`.
+
+Build and run with npm scripts:
+
+```bash
+npm run docker:build
+npm run docker:run
+```
+
+Or use Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+Then open `http://localhost:8080`.
 
 ## Commit Message Format
 
