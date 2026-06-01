@@ -12,6 +12,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "lint": "eslint .",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",

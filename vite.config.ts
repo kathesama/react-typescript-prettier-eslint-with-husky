@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      disable: process.env.STORYBOOK === 'true',
       registerType: 'autoUpdate',
       manifestFilename: 'manifest.json',
       includeAssets: ['favicon.ico', 'logo192.png', 'logo512.png'],

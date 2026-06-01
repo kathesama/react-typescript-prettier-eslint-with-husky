@@ -9,6 +9,7 @@
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![PWA Ready](https://img.shields.io/badge/PWA-ready-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 ![Docker Ready](https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Storybook](https://img.shields.io/badge/Storybook-ready-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
 <br>
 [![GitHub issues](https://img.shields.io/github/issues/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/issues)
 [![GitHub forks](https://img.shields.io/github/forks/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/network)
@@ -31,7 +32,8 @@
 
 Initial seed for a React project with TypeScript, Vite, ESLint, Prettier, Husky,
 Redux Toolkit, React Router, Sass modules, Testing Library, and a PWA-ready
-setup. The production build is Docker-ready and served with Nginx.
+setup. The production build is Docker-ready and served with Nginx. Component
+documentation is Storybook-ready.
 
 ## Requirements
 
@@ -57,6 +59,8 @@ setup. The production build is Docker-ready and served with Nginx.
   assets.
 - `npm run test:run`: runs tests once with Vitest.
 - `npm test`: starts Vitest in watch mode.
+- `npm run storybook`: starts Storybook on port `6006`.
+- `npm run build-storybook`: builds the static Storybook site.
 - `npm run lint`: runs ESLint.
 - `npm run prettier:check`: checks formatting.
 - `npm run prettier:fix`: formats the project.
@@ -113,6 +117,39 @@ docker compose up --build
 ```
 
 Then open `http://localhost:8080`.
+
+## Storybook
+
+This template includes Storybook with the Vite React framework. Use it to build
+and document reusable UI components in isolation.
+
+Run Storybook locally:
+
+```bash
+npm run storybook
+```
+
+Build the static Storybook output:
+
+```bash
+npm run build-storybook
+```
+
+Initial stories are included for `Home` and `UserSessionComponent`.
+
+## Testing
+
+Automated tests currently use Vitest with React Testing Library in a jsdom
+environment:
+
+- `@testing-library/react`
+- `@testing-library/jest-dom`
+- `@testing-library/user-event`
+- `vitest`
+- `jsdom`
+
+Playwright is not included as a project dependency. Add it later if the project
+needs browser-based end-to-end tests.
 
 ## Commit Message Format
 
