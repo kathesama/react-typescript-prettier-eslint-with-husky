@@ -1,11 +1,13 @@
-import React, { FC } from 'react';
-import cssStyle from './landTest.module.scss';
-import logo from "../../logo.svg";
+import type { FC } from 'react';
 
-const Home:FC<any> = ({ props }): any => (
-    <div className={cssStyle.App}>
-        Eureka!
-    </div>
-  );
+import cssStyle from './landTest.module.scss';
+
+type HomeProps = {
+  props?: unknown;
+};
+
+const Home: FC<HomeProps> = ({ props: _props }) => (
+  <div className={cssStyle.App}>Eureka!</div>
+);
 
 export default Home;

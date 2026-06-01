@@ -6,7 +6,7 @@
 ![ReactJS](https://img.shields.io/badge/-ReactJS-blue?logo=react&logoColor=white&style=for-the-badge)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
-![YARN](https://img.shields.io/badge/YARN-%23000000.svg?style=for-the-badge&logo=yarn&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 <br>
 [![GitHub issues](https://img.shields.io/github/issues/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/issues)
 [![GitHub forks](https://img.shields.io/github/forks/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/network)
@@ -25,28 +25,40 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)
 <br>
 
-# Initial seed for a react project
+# React TypeScript Template
 
-Steps to run this project
+Initial seed for a React project with TypeScript, Vite, ESLint, Prettier, Husky,
+Redux Toolkit, React Router, Sass modules, and Testing Library.
+
+## Requirements
+
+- Node.js `^20.19.0 || ^22.13.0 || >=24.0.0`
+- npm
+
+## Setup
 
 1. Clone this repo
    > git clone https://github.com/kathesama/react-typescript-prettier-eslint-with-husky.git
 2. Run install
    > npm install
+3. Run the dev server
+   > npm start
 
-Then go to _.git/hooks/commit-msg_, find the main function and replace it:
+## Available Scripts
 
-> const commitMsgFilePath = process.argv[2];
+- `npm start`: starts Vite in development mode.
+- `npm run build`: type-checks and builds production assets into `dist/`.
+- `npm run test:run`: runs tests once with Vitest.
+- `npm test`: starts Vitest in watch mode.
+- `npm run lint`: runs ESLint.
+- `npm run prettier:check`: checks formatting.
+- `npm run prettier:fix`: formats the project.
 
-with:
+## Commit Message Format
 
-> const commitMsgFilePath = path.resolve(process.env.PWD, process.argv[2].substring(1));
+This project uses Commitlint with Husky. Commit messages should use this format:
 
--> This fixes _Error: ENOENT: no such file or directory, open 'X:\.git\COMMIT_EDITMSG'_
-
-**Note**: This project uses _git-commit-msg-linter_ package, this one add a nice pattern for work in commit messages<br>
-
-```
+```text
 correct format: <type>[scope]: <subject>
 
   type:
@@ -72,74 +84,3 @@ correct format: <type>[scope]: <subject>
   subject:
     Brief summary of the change in present tense. Not capitalized. No period at the end.
 ```
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

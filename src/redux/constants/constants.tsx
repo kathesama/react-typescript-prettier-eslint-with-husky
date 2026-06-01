@@ -1,4 +1,4 @@
-import { User } from "@/models/User";
+import { User } from '@/models/User';
 
 export const Status = {
   FULFILLED: 'succeeded',
@@ -10,5 +10,5 @@ export const Status = {
 export const UserEmptyState: User = {
   name: '',
   gender: '',
-  status: ''
+  status: '',
 };

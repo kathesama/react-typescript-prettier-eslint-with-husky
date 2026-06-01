@@ -3,17 +3,20 @@ Created by: Katherine Aguirre
 On: 7/4/2022 : 13:40
 Project: react-typescript-prettier-eslint-with-husky
 */
-import React, { useState, FC } from "react";
-import cssStyle from "./userSession.module.scss";
+import { useState, type FC } from 'react';
 
-const UserSessionComponent: FC<any> = ({ props }): any => {
-  const [state, setState] = useState("");
+import cssStyle from './userSession.module.scss';
 
-  return (
-    <div>
-      UserSessionComponent
-    </div>
-  );
+type UserSessionComponentProps = {
+  props?: unknown;
+};
+
+const UserSessionComponent: FC<UserSessionComponentProps> = ({
+  props: _props,
+}) => {
+  const [_state, _setState] = useState('');
+
+  return <div className={cssStyle.userSession}>UserSessionComponent</div>;
 };
 
 export default UserSessionComponent;
