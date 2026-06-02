@@ -6,9 +6,15 @@
 ![ReactJS](https://img.shields.io/badge/-ReactJS-blue?logo=react&logoColor=white&style=for-the-badge)
 ![TypeScript](https://img.shields.io/badge/TypeScript-ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-ready-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Feature Oriented](https://img.shields.io/badge/Architecture-feature--oriented-111827?style=for-the-badge)
+![Modular Monolith](https://img.shields.io/badge/Pattern-modular_monolith-0F766E?style=for-the-badge)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![RTK Query](https://img.shields.io/badge/RTK_Query-ready-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+![Redux Persist](https://img.shields.io/badge/Redux_Persist-ready-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+![React Hook Form](https://img.shields.io/badge/React_Hook_Form-ready-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white)
+![Yup](https://img.shields.io/badge/Yup-ready-4B5563?style=for-the-badge)
+![Sass](https://img.shields.io/badge/Sass-ready-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![PWA Ready](https://img.shields.io/badge/PWA-ready-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 ![Docker Ready](https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
@@ -21,6 +27,8 @@
 ![ESLint](https://img.shields.io/badge/ESLint-ready-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
 ![Prettier](https://img.shields.io/badge/Prettier-ready-F7B93E?style=for-the-badge&logo=prettier&logoColor=black)
 ![Husky](https://img.shields.io/badge/Husky-ready-42B883?style=for-the-badge)
+![Commitlint](https://img.shields.io/badge/Commitlint-ready-000000?style=for-the-badge&logo=commitlint&logoColor=white)
+![Conventional Commits](https://img.shields.io/badge/Conventional_Commits-ready-FE5196?style=for-the-badge&logo=conventionalcommits&logoColor=white)
 <br>
 [![GitHub issues](https://img.shields.io/github/issues/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/issues)
 [![GitHub forks](https://img.shields.io/github/forks/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/network)
@@ -30,7 +38,7 @@
 ![GitHub version commits](https://img.shields.io/github/commits-since/kathesama/react-typescript-prettier-eslint-with-husky/V2.0.0.svg?color=yellow&style=plastic)
 ![GitHub top language](https://img.shields.io/github/languages/top/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)
 <br>
-![Maintaned](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=plastic)
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=plastic)
 
 [comment]: <> (![OWASP]&#40;https://img.shields.io/badge/OWASP%3F-yes-green.svg?style=plastic&#41;)
 
@@ -46,6 +54,24 @@ TypeScript, Vite, React Router, Redux Toolkit, RTK Query, Redux Persist, Sass
 modules, Vitest, React Testing Library, Playwright, MSW, Storybook, ESLint,
 Prettier, Husky, i18n, Docker, and a production-only PWA setup.
 
+## What's Included
+
+- React 19 with the modern JSX transform.
+- Vite application build with strict TypeScript.
+- Feature-oriented frontend architecture for scalable product modules.
+- React Router route composition.
+- Redux Toolkit store with Redux Persist and RTK Query.
+- Shared API layer with `VITE_API_BASE_URL` support.
+- Sass modules for component styles.
+- i18n with English and Spanish starter locales.
+- MSW for local browser mocks and test mocks.
+- Vitest, React Testing Library, and jest-dom for component tests.
+- Playwright for browser-level smoke and E2E tests.
+- Storybook with Vite for isolated component development.
+- PWA-ready production build using `vite-plugin-pwa`.
+- Docker production image served by Nginx.
+- ESLint, Prettier, Husky, lint-staged, Commitlint, and Conventional Commits.
+
 ## Requirements
 
 - Node.js `^20.19.0 || ^22.13.0 || >=24.0.0`
@@ -60,6 +86,41 @@ Prettier, Husky, i18n, Docker, and a production-only PWA setup.
    > npm install
 3. Run the dev server
    > npm start
+
+## Project Structure
+
+```text
+src/
+  app/
+  common/
+    api/
+    config/
+    hooks/
+    i18n/
+    types/
+    utils/
+  components/
+    layout/
+    ui/
+  features/
+    auth/
+    home/
+    not-found/
+    user/
+      session/
+  mocks/
+  router/
+  store/
+  index.scss
+  index.tsx
+  setupTests.ts
+tests/
+  e2e/
+```
+
+Top-level folders are intentionally few. `src/common`, `src/components`,
+`src/router`, and `src/store` hold shared app infrastructure. Product work
+should primarily happen inside `src/features`.
 
 ## Architecture Patterns
 
@@ -90,6 +151,8 @@ Feature modules expose their public surface through `index.ts`. App-level code
 should import from the feature barrel, for example `@/features/home`, instead
 of reaching into feature internals.
 
+## Feature Module Contract
+
 The `home` feature is the complete reference module:
 
 ```text
@@ -112,10 +175,61 @@ Feature folder responsibilities:
 - `store`: feature slices, RTK Query endpoints, selectors, and state tests.
 - `types`: feature TypeScript contracts and DTOs.
 
+When adding a new feature, follow this contract:
+
+1. Create `src/features/<feature-name>/`.
+2. Add `index.ts` as the public export boundary.
+3. Put feature-owned UI under `components/`.
+4. Put feature types and DTOs under `types/`.
+5. Put slices, selectors, and RTK Query endpoint injection under `store/`.
+6. Put controller hooks and reusable feature hooks under `hooks/`.
+7. Add feature-local constants or setup under `config/`.
+8. Register reducers and API middleware in the app store only when needed.
+9. Register routes in `src/router` only through the feature public exports.
+10. Add tests, MSW handlers, and Storybook stories when the feature exposes UI
+    or async behavior.
+
+The goal is to keep each feature independently understandable while still
+shipping as one application.
+
+## Path Aliases
+
+The template ships with these TypeScript and Vite aliases:
+
+```text
+@/*           -> src/*
+@app/*        -> src/app/*
+@common/*     -> src/common/*
+@components/* -> src/components/*
+@mocks/*      -> src/mocks/*
+@router/*     -> src/router/*
+@store/*      -> src/store/*
+```
+
+Use `@/features/<feature-name>` for feature imports. Feature internals should
+stay behind their local `index.ts` wherever possible.
+
+## Environment Variables
+
+Create `.env.local` when a project needs local runtime configuration:
+
+```dotenv
+VITE_API_BASE_URL=/
+VITE_ENABLE_MOCKS=false
+```
+
+- `VITE_API_BASE_URL`: base URL used by the shared RTK Query `baseApi`.
+- `VITE_ENABLE_MOCKS=true`: starts the MSW browser worker during development.
+
+Do not commit app-specific secrets. Vite exposes `VITE_*` variables to the
+browser bundle.
+
 ## Available Scripts
 
 - `npm start`: starts Vite in development mode. PWA features are disabled in
   this mode.
+- `npm run dev`: starts Vite in development mode. This is equivalent to
+  `npm start`.
 - `npm run build`: type-checks and builds production assets into `dist/`.
 - `npm run preview`: serves the production build locally with the generated PWA
   assets.
@@ -133,6 +247,21 @@ Feature folder responsibilities:
   and Storybook build.
 - `npm run docker:build`: builds the production Docker image.
 - `npm run docker:run`: runs the production Docker image on port `8080`.
+
+## Quality Gate
+
+Use the full verification script before handing a project branch over:
+
+```bash
+npm run verify
+```
+
+This runs linting, formatting checks, unit tests, E2E tests, production build,
+and Storybook build. For container readiness, also run:
+
+```bash
+npm run docker:build
+```
 
 ## PWA Ready
 
@@ -231,9 +360,11 @@ the MSW server automatically through `src/setupTests.ts`.
 
 Browser mocks are opt-in during development to avoid hiding real API issues:
 
-```bash
-VITE_ENABLE_MOCKS=true npm start
+```dotenv
+VITE_ENABLE_MOCKS=true
 ```
+
+Set that value in `.env.local`, then run `npm start` or `npm run dev`.
 
 Add project-specific handlers in `src/mocks/handlers.ts`.
 
