@@ -4,12 +4,23 @@
 <br>
 ![IntellijIdea](https://img.shields.io/badge/Made%20for-IntellijIdea-1f425f.svg?style=for-the-badge)
 ![ReactJS](https://img.shields.io/badge/-ReactJS-blue?logo=react&logoColor=white&style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-ready-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![RTK Query](https://img.shields.io/badge/RTK_Query-ready-764ABC?style=for-the-badge&logo=redux&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![PWA Ready](https://img.shields.io/badge/PWA-ready-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 ![Docker Ready](https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Storybook](https://img.shields.io/badge/Storybook-ready-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-ready-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-ready-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
+![Testing Library](https://img.shields.io/badge/Testing_Library-ready-E33332?style=for-the-badge&logo=testinglibrary&logoColor=white)
+![MSW](https://img.shields.io/badge/MSW-ready-FF6A33?style=for-the-badge)
+![i18next](https://img.shields.io/badge/i18next-ready-26A69A?style=for-the-badge&logo=i18next&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-ready-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/Prettier-ready-F7B93E?style=for-the-badge&logo=prettier&logoColor=black)
+![Husky](https://img.shields.io/badge/Husky-ready-42B883?style=for-the-badge)
 <br>
 [![GitHub issues](https://img.shields.io/github/issues/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/issues)
 [![GitHub forks](https://img.shields.io/github/forks/kathesama/react-typescript-prettier-eslint-with-husky?style=plastic)](https://github.com/kathesama/react-typescript-prettier-eslint-with-husky/network)
@@ -30,10 +41,10 @@
 
 # React TypeScript Template
 
-Initial seed for a React project with TypeScript, Vite, ESLint, Prettier, Husky,
-Redux Toolkit, React Router, Sass modules, Testing Library, and a PWA-ready
-setup. The production build is Docker-ready and served with Nginx. Component
-documentation is Storybook-ready.
+Enterprise-ready modular monolith frontend starter for React projects with
+TypeScript, Vite, React Router, Redux Toolkit, RTK Query, Redux Persist, Sass
+modules, Vitest, React Testing Library, Playwright, MSW, Storybook, ESLint,
+Prettier, Husky, i18n, Docker, and a production-only PWA setup.
 
 ## Requirements
 
@@ -50,6 +61,57 @@ documentation is Storybook-ready.
 3. Run the dev server
    > npm start
 
+## Architecture Patterns
+
+This template uses a feature-oriented frontend architecture, similar to a
+modular monolith on the frontend: one app, one build, one router, one store, and
+feature modules with clear public entry points.
+
+The template keeps the architecture generic and avoids app-specific UI kits or
+domain documentation. The structure is prepared for product work without being
+coupled to a specific business domain:
+
+- `src/app`: application composition.
+- `src/common/api`: shared RTK Query base API.
+- `src/common/config`: shared configuration helpers.
+- `src/common/hooks`: typed Redux hooks and reusable cross-feature hooks.
+- `src/common/i18n`: i18next setup and bundled locale resources.
+- `src/common/types`: shared TypeScript types.
+- `src/common/utils`: shared pure utilities.
+- `src/components`: shared reusable UI/layout components only.
+- `src/router`: route constants and router configuration.
+- `src/store`: configured Redux store, persistence, and app store types.
+- `src/features`: product modules such as `auth`, `home`, `not-found`, and
+  `user/session`.
+- `src/mocks`: MSW handlers for local development and tests.
+- `tests/e2e`: Playwright browser tests.
+
+Feature modules expose their public surface through `index.ts`. App-level code
+should import from the feature barrel, for example `@/features/home`, instead
+of reaching into feature internals.
+
+The `home` feature is the complete reference module:
+
+```text
+src/features/home/
+  index.ts
+  components/
+  config/
+  hooks/
+  store/
+  types/
+```
+
+Use that shape when adding new product modules.
+
+Feature folder responsibilities:
+
+- `components`: screens and React components owned by the feature.
+- `config`: feature-local constants, defaults, permissions, and flags.
+- `hooks`: feature controller hooks and reusable feature-specific hooks.
+- `store`: feature slices, RTK Query endpoints, selectors, and state tests.
+- `types`: feature TypeScript contracts and DTOs.
+
 ## Available Scripts
 
 - `npm start`: starts Vite in development mode. PWA features are disabled in
@@ -59,11 +121,16 @@ documentation is Storybook-ready.
   assets.
 - `npm run test:run`: runs tests once with Vitest.
 - `npm test`: starts Vitest in watch mode.
+- `npm run test:e2e`: runs Playwright end-to-end tests.
+- `npm run test:e2e:headed`: runs Playwright with a visible browser.
+- `npm run test:all`: runs Vitest and Playwright.
 - `npm run storybook`: starts Storybook on port `6006`.
 - `npm run build-storybook`: builds the static Storybook site.
 - `npm run lint`: runs ESLint.
 - `npm run prettier:check`: checks formatting.
 - `npm run prettier:fix`: formats the project.
+- `npm run verify`: runs lint, formatting check, Vitest, Playwright, app build,
+  and Storybook build.
 - `npm run docker:build`: builds the production Docker image.
 - `npm run docker:run`: runs the production Docker image on port `8080`.
 
@@ -139,8 +206,8 @@ Initial stories are included for `Home` and `UserSessionComponent`.
 
 ## Testing
 
-Automated tests currently use Vitest with React Testing Library in a jsdom
-environment:
+Automated tests use Vitest with React Testing Library in a jsdom environment
+for unit and integration coverage:
 
 - `@testing-library/react`
 - `@testing-library/jest-dom`
@@ -148,8 +215,42 @@ environment:
 - `vitest`
 - `jsdom`
 
-Playwright is not included as a project dependency. Add it later if the project
-needs browser-based end-to-end tests.
+Browser end-to-end coverage uses Playwright:
+
+```bash
+npm run test:e2e
+```
+
+The initial E2E smoke test verifies that the home route renders in a real
+browser.
+
+## Mocking
+
+MSW is included for isolated frontend development and tests. Test setup starts
+the MSW server automatically through `src/setupTests.ts`.
+
+Browser mocks are opt-in during development to avoid hiding real API issues:
+
+```bash
+VITE_ENABLE_MOCKS=true npm start
+```
+
+Add project-specific handlers in `src/mocks/handlers.ts`.
+
+## Internationalization
+
+This template includes i18n with `i18next`, `react-i18next`, and browser
+language detection.
+
+Locale resources live in:
+
+```text
+src/common/i18n/locales/
+```
+
+The default language is English (`en`) and Spanish (`es`) is included as the
+second starter locale. Add new locale JSON files and register them in
+`src/common/i18n/index.ts`.
 
 ## Commit Message Format
 

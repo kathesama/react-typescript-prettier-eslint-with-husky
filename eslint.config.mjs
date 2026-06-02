@@ -10,7 +10,15 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['dist', 'coverage', 'node_modules', 'storybook-static'],
+    ignores: [
+      'dist',
+      'coverage',
+      'node_modules',
+      'public/mockServiceWorker.js',
+      'storybook-static',
+      'playwright-report',
+      'test-results',
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -70,7 +78,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['vite.config.ts', 'eslint.config.mjs'],
+    files: ['vite.config.ts', 'playwright.config.ts', 'eslint.config.mjs'],
     languageOptions: {
       globals: {
         ...globals.node,

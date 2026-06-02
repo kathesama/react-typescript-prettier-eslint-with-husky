@@ -1,0 +1,11 @@
+{
+  "home": {
+    "title": "Eureka!"
+  },
+  "notFound": {
+    "screenReaderText": "Error 404: Not Found"
+  },
+  "userSession": {
+    "label": "UserSessionComponent"
+  }
+}

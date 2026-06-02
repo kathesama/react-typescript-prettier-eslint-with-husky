@@ -12,11 +12,15 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:all": "npm run test:run && npm run test:e2e",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint .",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
+    "verify": "npm run lint && npm run prettier:check && npm run test:run && npm run test:e2e && npm run build && npm run build-storybook",
     "docker:build": "docker build -t react-typescript-template .",
     "docker:run": "docker run --rm -p 8080:80 react-typescript-template",
     "prepare": "husky"
@@ -35,10 +39,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",
-    "axios": "^1.16.1",
+    "i18next": "^26.3.0",
+    "i18next-browser-languagedetector": "^8.2.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-hook-form": "^7.77.0",
+    "react-i18next": "^17.0.8",
     "react-redux": "^9.3.0",
     "react-router-dom": "^7.16.0",
     "redux-persist": "^6.0.0",
@@ -49,6 +55,7 @@
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
     "@eslint/js": "^9.39.4",
+    "@playwright/test": "^1.59.1",
     "@storybook/addon-docs": "^10.4.1",
     "@storybook/react-vite": "^10.4.1",
     "@testing-library/dom": "^10.4.1",
@@ -70,6 +77,7 @@
     "husky": "^9.1.7",
     "jsdom": "^29.1.1",
     "lint-staged": "^16.4.0",
+    "msw": "^2.14.6",
     "prettier": "^3.8.3",
     "storybook": "^10.4.1",
     "typescript": "^6.0.3",
@@ -89,5 +97,10 @@
   },
   "_moduleAliases": {
     "@": "./src/*"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

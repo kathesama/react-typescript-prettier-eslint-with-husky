@@ -41,6 +41,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globIgnores: ['mockServiceWorker.js'],
       },
       devOptions: {
         enabled: false,
@@ -50,10 +51,19 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@app': fileURLToPath(new URL('./src/app', import.meta.url)),
+      '@common': fileURLToPath(new URL('./src/common', import.meta.url)),
+      '@components': fileURLToPath(
+        new URL('./src/components', import.meta.url)
+      ),
+      '@mocks': fileURLToPath(new URL('./src/mocks', import.meta.url)),
+      '@router': fileURLToPath(new URL('./src/router', import.meta.url)),
+      '@store': fileURLToPath(new URL('./src/store', import.meta.url)),
     },
   },
   test: {
     environment: 'jsdom',
+    include: ['src/**/*.{test,spec}.{ts,tsx}'],
     globals: true,
     setupFiles: './src/setupTests.ts',
   },
